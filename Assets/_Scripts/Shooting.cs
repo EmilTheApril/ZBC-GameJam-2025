@@ -1,12 +1,15 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
     private Camera mainCam;
     private Vector3 mousePos;
+    public float KnockbackForce;
 
     public GameObject bullet;
     public Transform bulletTransform;
+    private Rigidbody2D PlayerRb;
 
     public bool Canfire;
     private float timer;
@@ -14,6 +17,7 @@ public class Shooting : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        PlayerRb = transform.parent.GetComponent<Rigidbody2D>();
         mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
     }
 
@@ -33,10 +37,15 @@ public class Shooting : MonoBehaviour
                timer = 0;
            }
         }
-        if(Input.GetMouseButton(0) && Canfire)
+        if(Input.GetMouseButtonDown(0) && Canfire)
         {
             Canfire = false;
-            Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+            for (int i = 0; i <= 5; i++)
+            {
+                GameObject bulletsOBJ = Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+                bulletsOBJ.transform.rotation = Quaternion.Euler(0f, 0f, rotZ + Random.Range(-5, 5));
+            }
+            PlayerRb.AddForce(-rotation * KnockbackForce * Time.fixedDeltaTime, ForceMode2D.Impulse);
         }
     }
 }

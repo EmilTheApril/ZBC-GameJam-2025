@@ -555,7 +555,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 1
   m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -722,10 +722,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a53aaa23d400541cb49c52a66d21b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
-  bulletTransform: {fileID: 0}
-  Canfire: 0
-  timeBetweenShots: 0
+  KnockbackForce: 500
+  bullet: {fileID: 8890271485109897922, guid: 541ad49d9bed18022a83dc5d438c9dee, type: 3}
+  bulletTransform: {fileID: 114346010}
+  Canfire: 1
+  timeBetweenShots: 0.3
 --- !u!1 &1882703249
 GameObject:
   m_ObjectHideFlags: 0
