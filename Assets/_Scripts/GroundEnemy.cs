@@ -51,6 +51,7 @@ public class GroundEnemy : MonoBehaviour
         {
             if (hitUnder.collider == null) return;
             Jump();
+            transform.localRotation = new Quaternion();
             return;
         }
 
