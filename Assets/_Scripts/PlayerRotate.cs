@@ -15,12 +15,13 @@ public class PlayerRotate : MonoBehaviour
     private float startRotation = 0f;
     private bool rotateClockwise = false;
     private bool jumpingHeld;
-    public bool isJumping { get; private set; }
-    public bool isGrounded { get; private set; }
+    public bool isJumping;
+    public bool isGrounded;
     public bool isDisabled { get; private set; }
     [SerializeField] private float disabledTime;
     public AudioClip jumpSound;
     public AudioClip fallSound;
+    public AudioClip playerHitSound;
     private Rigidbody2D rb;
     private float timer;
 
@@ -53,6 +54,7 @@ public class PlayerRotate : MonoBehaviour
         DisablePlayer();
         rb.linearVelocity = Vector2.zero;
         rb.linearDamping = 1;
+        SoundManager.instance.PlaySound(playerHitSound);
         GetComponent<BoxCollider2D>().sharedMaterial = attackedMat;
         rb.AddForce(((new Vector2(transform.position.x, 0) - new Vector2(otherTrans.position.x, 0)).normalized + Vector2.up).normalized * knockbackForceOnPlayer, ForceMode2D.Impulse);
     }
@@ -87,11 +89,12 @@ public class PlayerRotate : MonoBehaviour
         SoundManager.instance.PlaySound(jumpSound);
         rb.linearVelocity = Vector2.zero;
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        Invoke(nameof(JumpingCooldown), 0.1f);
+        Invoke(nameof(JumpingCooldown), 0.25f);
     }
 
     public void JumpingCooldown()
     {
+        isGrounded = false;
         if (!isGrounded) return;
         isJumping = false;
     }
@@ -101,7 +104,7 @@ public class PlayerRotate : MonoBehaviour
         RaycastHit2D ground = Physics2D.Raycast(transform.position - new Vector3(.3475f, .55f), Vector2.right, 0.695f);
 
         if (rb.linearVelocity.y < 0) return;
-        if(ground.collider != null)
+        if(ground.collider != null && !ground.transform.CompareTag("Bullet"))
         {
             if (isGrounded) return;
             isGrounded = true;
