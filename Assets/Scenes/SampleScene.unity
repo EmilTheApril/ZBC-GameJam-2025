@@ -1328,19 +1328,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5652784196160140026, guid: 97af7dbccdafe4ff189f2a662bf6379d, type: 3}
       propertyPath: m_Name
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 7704710031135463862, guid: 97af7dbccdafe4ff189f2a662bf6379d, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7704710031135463862, guid: 97af7dbccdafe4ff189f2a662bf6379d, type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7704710031135463862, guid: 97af7dbccdafe4ff189f2a662bf6379d, type: 3}
-      propertyPath: m_Color.r
-      value: 1
+      value: GroundEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

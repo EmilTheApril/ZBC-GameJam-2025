@@ -6,6 +6,7 @@ public class GroundEnemy : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
     [SerializeField] private bool isJumping;
+    [SerializeField] private LayerMask layer;
     private Rigidbody2D rb;
 
     private void Awake()
@@ -41,11 +42,11 @@ public class GroundEnemy : MonoBehaviour
 
     public void CheckFloor()
     {
-        RaycastHit2D hitGround = Physics2D.Raycast(transform.position + new Vector3((dir.x / 2) + (dir.x * 0.05f), -0.5f, 0), Vector2.down, 2f);
-        RaycastHit2D hitGroundInFront = Physics2D.Raycast(transform.position + new Vector3((dir.x / 2) + dir.x + (dir.x * 0.05f), -0.5f, 0), Vector2.down, 2f);
-        RaycastHit2D hitUnder = Physics2D.Raycast(transform.position + new Vector3(0, -0.6f, 0), Vector2.down, 0.01f);
-        RaycastHit2D hitWall = Physics2D.Raycast(transform.position + new Vector3((dir.x / 2) + (dir.x * 0.05f), 0, 0), dir, 1f);
-        RaycastHit2D hitWallOver = Physics2D.Raycast(transform.position + new Vector3((dir.x / 2) + (dir.x * 0.05f), 1, 0), dir, 1f);
+        RaycastHit2D hitGround = Physics2D.Raycast(transform.position + new Vector3((dir.x / 2) + (dir.x * 0.05f), -0.5f, 0), Vector2.down, 2f, layer);
+        RaycastHit2D hitGroundInFront = Physics2D.Raycast(transform.position + new Vector3((dir.x / 2) + dir.x + (dir.x * 0.05f), -0.5f, 0), Vector2.down, 2f, layer);
+        RaycastHit2D hitUnder = Physics2D.Raycast(transform.position + new Vector3(0, -0.6f, 0), Vector2.down, 0.01f, layer);
+        RaycastHit2D hitWall = Physics2D.Raycast(transform.position + new Vector3((dir.x / 2) + (dir.x * 0.05f), 0, 0), dir, 1f, layer);
+        RaycastHit2D hitWallOver = Physics2D.Raycast(transform.position + new Vector3((dir.x / 2) + (dir.x * 0.05f), 1, 0), dir, 1f, layer);
 
         if(hitWall.distance <= 1 && hitWall.collider != null && hitWallOver.collider == null && hitUnder.collider != null || hitGroundInFront.distance <= 1.5f && hitGroundInFront.collider != null && hitUnder.collider != null && hitGround.collider == null)
         {
