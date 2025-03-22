@@ -19,6 +19,7 @@ public class Shooting : MonoBehaviour
     public GameObject bullet;
     public Transform bulletTransform;
     public SpriteRenderer gunSpriteRenderer;
+    public SpriteRenderer playerSpriteRenderer;
     public AudioClip shootSound;
     private Rigidbody2D rb;
 
@@ -53,6 +54,7 @@ public class Shooting : MonoBehaviour
 
         float zRot = transform.GetChild(0).eulerAngles.z;
         gunSpriteRenderer.flipY = zRot > 90 && zRot < 270 ? true : false;
+        playerSpriteRenderer.flipX = zRot > 90 && zRot < 270 ? true : false;
     }
 
     public void OnFire(InputValue value)

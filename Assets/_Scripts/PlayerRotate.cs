@@ -91,7 +91,7 @@ public class PlayerRotate : MonoBehaviour
 
     public void CheckIfGrounded()
     {
-        RaycastHit2D ground = Physics2D.Raycast(transform.position - new Vector3(.35f, .55f), Vector2.right, 0.7f);
+        RaycastHit2D ground = Physics2D.Raycast(transform.position - new Vector3(.4f, .55f), Vector2.right, 0.8f);
 
         if (rb.linearVelocity.y < 0) return;
         if(ground.collider != null)

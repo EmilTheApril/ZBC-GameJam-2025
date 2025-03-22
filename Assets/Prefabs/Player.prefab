@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1287192689919150509}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -179,6 +179,7 @@ MonoBehaviour:
   bullet: {fileID: 8890271485109897922, guid: 541ad49d9bed18022a83dc5d438c9dee, type: 3}
   bulletTransform: {fileID: 1752219052925430537}
   gunSpriteRenderer: {fileID: 6429292344931174273}
+  playerSpriteRenderer: {fileID: 6311275773235970301}
   shootSound: {fileID: 8300000, guid: db2f68bde40b54ddf9e48520e5e83ce7, type: 3}
   canFire: 1
   timeBetweenShots: 0.3
@@ -198,6 +199,9 @@ MonoBehaviour:
   playerSprite: {fileID: 6553022310666993950}
   rotationTime: 0.5
   jumpForce: 250
+  knockbackForceOnPlayer: 15
+  attackedMat: {fileID: 6200000, guid: 1bb5a478a0a284ef2b00cc54a0ed222a, type: 2}
+  disabledTime: 1.5
   jumpSound: {fileID: 8300000, guid: 461a72964e8784013a69cfd610795188, type: 3}
   fallSound: {fileID: 8300000, guid: 93537c5c499894da0862259b4e6f36d4, type: 3}
 --- !u!50 &3740120904759905289
@@ -291,7 +295,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.25}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -301,7 +305,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.7, y: 1.5}
+  m_Size: {x: 0.7, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &4686753699833601332
 GameObject:
@@ -411,7 +415,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1946618881752880254, guid: 5246c61df70ccd1a59364d8e1f186d9a, type: 3}
+  m_Sprite: {fileID: 1525668301405208848, guid: 43c1cf8df6f6d9bc6b154def06ae388b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

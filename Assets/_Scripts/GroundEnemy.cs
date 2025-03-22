@@ -61,6 +61,12 @@ public class GroundEnemy : MonoBehaviour
         {
             if (hitUnder.collider == null) return;
             dir = dir * -1;
+
+            if (dir.x > 0)
+            {
+                GetComponent<SpriteRenderer>().flipX = false;
+            }
+            else if(dir.x < 0) GetComponent<SpriteRenderer>().flipX = true;
         }
     }
 
