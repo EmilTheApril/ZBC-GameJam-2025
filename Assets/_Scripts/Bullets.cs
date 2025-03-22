@@ -7,12 +7,13 @@ public class Bullets : MonoBehaviour
     private Camera mainCam;
     private Rigidbody2D rb;
     public Vector2 force;
+    public Vector2 destroyAfter;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         Vector3 direction = transform.right;
-        rb.linearVelocity =  direction * Random.Range(force.x, force.y);
-        Destroy(gameObject, Random.Range(0.1f, 0.08f));
+        rb.linearVelocity =  direction * Random.Range(force.x, force.y) * Time.fixedDeltaTime;
+        Destroy(gameObject, Random.Range(destroyAfter.x, destroyAfter.y));
     }
 
     // Update is called once per frame

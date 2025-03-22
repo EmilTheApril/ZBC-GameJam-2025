@@ -13,10 +13,13 @@ public class Shooting : MonoBehaviour
     public float maxVelocity;
     public float slowdownSpeed;
     public Vector2 bulletSpreadAngle;
+    public int maxBullets;
+    private int currentBullets;
 
     public GameObject bullet;
     public Transform bulletTransform;
     public SpriteRenderer gunSpriteRenderer;
+    public AudioClip shootSound;
     private Rigidbody2D rb;
 
     public bool canFire = true;
@@ -26,6 +29,7 @@ public class Shooting : MonoBehaviour
     void Awake()
     {
         rb = transform.GetComponent<Rigidbody2D>();
+        currentBullets = maxBullets;
     }
 
     // Update is called once per frame
@@ -34,6 +38,8 @@ public class Shooting : MonoBehaviour
         SetRotation();
         Shoot();
         DampenSpeed();
+
+        if (GetComponent<PlayerRotate>().isGrounded) currentBullets = maxBullets;
     }
 
     public void SetRotation()
@@ -71,8 +77,11 @@ public class Shooting : MonoBehaviour
     public void Shoot()
     {
         if (!canFire || !shootButtonHeld) return;
+        if (currentBullets <= 0) return;
         canFire = false;
+        currentBullets--;
 
+        SoundManager.instance.PlaySound(shootSound);
         GunRecoil();
         GetComponent<PlayerRotate>().Rotate();
 
