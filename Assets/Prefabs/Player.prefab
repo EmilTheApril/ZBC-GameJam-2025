@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 2128075012299436329}
   - component: {fileID: 5849651106678676317}
   - component: {fileID: 6551483382884780836}
-  - component: {fileID: 4112243692969274191}
   - component: {fileID: 3740120904759905289}
   - component: {fileID: 2444380949941528053}
   - component: {fileID: 3766874246692385463}
@@ -205,20 +204,6 @@ MonoBehaviour:
   disabledTime: 1.5
   jumpSound: {fileID: 8300000, guid: 461a72964e8784013a69cfd610795188, type: 3}
   fallSound: {fileID: 8300000, guid: 93537c5c499894da0862259b4e6f36d4, type: 3}
---- !u!114 &4112243692969274191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3229586625424389820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9177b7de7db84a78bf379df8a472aad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraPosHeight: 20
-  thresholdDistance: 10.5
 --- !u!50 &3740120904759905289
 Rigidbody2D:
   serializedVersion: 5
