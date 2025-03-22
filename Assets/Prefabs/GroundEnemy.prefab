@@ -103,8 +103,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dir: {x: 0, y: 0}
-  speed: 100
-  jumpForce: 250
+  speed: 125
+  jumpForce: 350
   isJumping: 0
   layer:
     serializedVersion: 2
