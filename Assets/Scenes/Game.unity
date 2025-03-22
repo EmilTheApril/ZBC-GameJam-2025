@@ -10277,6 +10277,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5849651106678676317, guid: b4c1dea385e3c4edfbbaf73209a4e1cc, type: 3}
+      propertyPath: maxBullets
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
