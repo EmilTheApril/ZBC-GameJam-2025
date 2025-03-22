@@ -81,7 +81,7 @@ public class Shooting : MonoBehaviour
             GameObject bulletsOBJ = Instantiate(bullet, bulletTransform.position, Quaternion.identity);
             bulletsOBJ.transform.rotation = Quaternion.Euler(0f, 0f, shootRot + Random.Range(bulletSpreadAngle.x, bulletSpreadAngle.y));
         }
-        rb.linearVelocityY = 0;
+        //rb.linearVelocityY = 0;
         rb.AddForce(-shootDir.normalized * KnockbackForce, ForceMode2D.Impulse);
         Invoke(nameof(ShootCooldown), timeBetweenShots);
     }
