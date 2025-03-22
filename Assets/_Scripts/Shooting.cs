@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -71,6 +72,10 @@ public class Shooting : MonoBehaviour
     {
         if (!canFire || !shootButtonHeld) return;
         canFire = false;
+
+        GunRecoil();
+        GetComponent<PlayerRotate>().Rotate();
+
         for (int i = 0; i <= 5; i++)
         {
             GameObject bulletsOBJ = Instantiate(bullet, bulletTransform.position, Quaternion.identity);
@@ -79,5 +84,68 @@ public class Shooting : MonoBehaviour
         rb.linearVelocityY = 0;
         rb.AddForce(-shootDir.normalized * KnockbackForce, ForceMode2D.Impulse);
         Invoke(nameof(ShootCooldown), timeBetweenShots);
+    }
+
+    public void GunRecoil()
+    {
+        StartCoroutine(RecoilCoroutine());
+    }
+
+    private IEnumerator RecoilCoroutine()
+    {
+        Vector3 originalPosition = gunSpriteRenderer.transform.localPosition;
+        // Use shootDir for recoil direction (opposite to shooting direction)
+        Vector3 recoilDirection = -new Vector3(shootDir.x, shootDir.y, 0).normalized;
+
+        // Transform the recoil direction to local space of the gun
+        recoilDirection = gunSpriteRenderer.transform.InverseTransformDirection(recoilDirection);
+
+        float recoilAmount = 1.5f;
+        float recoilSpeed = 15f;
+        float returnSpeed = 2.5f;
+
+        // Quick recoil backward
+        float elapsedTime = 0f;
+        float recoilDuration = 0.05f;
+
+        while (elapsedTime < recoilDuration)
+        {
+            // Apply recoil
+            Vector3 targetPosition = originalPosition + recoilDirection * recoilAmount;
+            float progress = elapsedTime / recoilDuration * recoilSpeed;
+            progress = Mathf.Clamp01(progress);
+
+            gunSpriteRenderer.transform.localPosition = Vector3.Lerp(
+                originalPosition,
+                targetPosition,
+                progress
+            );
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Slow return to original position
+        elapsedTime = 0f;
+        float returnDuration = 0.3f;
+        Vector3 recoiledPosition = gunSpriteRenderer.transform.localPosition;
+
+        while (elapsedTime < returnDuration)
+        {
+            float progress = elapsedTime / returnDuration * returnSpeed;
+            progress = Mathf.Clamp01(progress);
+
+            gunSpriteRenderer.transform.localPosition = Vector3.Lerp(
+                recoiledPosition,
+                originalPosition,
+                progress
+            );
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Ensure it returns to exact original position
+        gunSpriteRenderer.transform.localPosition = originalPosition;
     }
 }
