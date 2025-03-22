@@ -39,7 +39,7 @@ public class Shooting : MonoBehaviour
         Shoot();
         DampenSpeed();
 
-        if (GetComponent<PlayerRotate>().isGrounded && canFire) currentBullets = maxBullets;
+        if (GetComponent<PlayerRotate>().isGrounded && canFire && rb.linearVelocity.y < 0) currentBullets = maxBullets;
     }
 
     public void SetRotation()

@@ -57,6 +57,7 @@ public class PlayerRotate : MonoBehaviour
         RaycastHit2D groundLeft = Physics2D.Raycast(transform.position - new Vector3(.5f, .51f), Vector2.down, 0.1f);
         RaycastHit2D groundRight = Physics2D.Raycast(transform.position - new Vector3(-.5f, .51f), Vector2.down, 0.1f);
 
+        if (rb.linearVelocity.y < 0) return;
         isGrounded = (groundLeft.collider != null || groundRight.collider != null) ? true : false;
     }
 
