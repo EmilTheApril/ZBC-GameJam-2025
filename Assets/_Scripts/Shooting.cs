@@ -39,7 +39,7 @@ public class Shooting : MonoBehaviour
         Shoot();
         DampenSpeed();
 
-        if (GetComponent<PlayerRotate>().isGrounded) currentBullets = maxBullets;
+        if (GetComponent<PlayerRotate>().isGrounded && canFire) currentBullets = maxBullets;
     }
 
     public void SetRotation()
@@ -79,7 +79,6 @@ public class Shooting : MonoBehaviour
         if (!canFire || !shootButtonHeld) return;
         if (currentBullets <= 0) return;
         canFire = false;
-        currentBullets--;
 
         SoundManager.instance.PlaySound(shootSound);
         GunRecoil();
@@ -92,6 +91,7 @@ public class Shooting : MonoBehaviour
         }
         //rb.linearVelocityY = 0;
         rb.AddForce(-shootDir.normalized * KnockbackForce, ForceMode2D.Impulse);
+        currentBullets--;
         Invoke(nameof(ShootCooldown), timeBetweenShots);
     }
 

@@ -33,7 +33,7 @@ ScriptedImporter:
     sRGBTexture: 1
     spriteMode: 2
     spriteExtrude: 1
-    spriteMeshType: 1
+    spriteMeshType: 0
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
     spritePixelsToUnits: 16
@@ -98,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638782541734589790
+  platformSettingsDirtyTick: 638782569856793890
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -252,7 +252,7 @@ ScriptedImporter:
   spriteSheetImportData:
   - name: Tiles_Stone_0
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -264,16 +264,24 @@ ScriptedImporter:
       height: 16
     spriteID: a24de8e552e2955aaa516cdd1344be5f
     spriteBone: []
-    spriteOutline: []
+    spriteOutline:
+    - outline:
+      - {x: 8, y: -8}
+      - {x: 8, y: 8}
+      - {x: -8, y: 8}
     vertices: []
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: 8, y: -8}
+      - {x: 8, y: 8}
+      - {x: -8, y: 8}
     indices: 
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   - name: Tiles_Stone_1
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -285,16 +293,24 @@ ScriptedImporter:
       height: 16
     spriteID: 221fceddcb4c8a1b6aefc2c5e53f943f
     spriteBone: []
-    spriteOutline: []
+    spriteOutline:
+    - outline:
+      - {x: -8, y: 8}
+      - {x: -8, y: -8}
+      - {x: 8, y: -8}
     vertices: []
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -8, y: 8}
+      - {x: -8, y: -8}
+      - {x: 8, y: -8}
     indices: 
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   - name: Tiles_Stone_2
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -306,9 +322,17 @@ ScriptedImporter:
       height: 16
     spriteID: 4f966994e59cceebbadca05879d05693
     spriteBone: []
-    spriteOutline: []
+    spriteOutline:
+    - outline:
+      - {x: 8, y: 8}
+      - {x: -8, y: -8}
+      - {x: 8, y: -8}
     vertices: []
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: 8, y: 8}
+      - {x: -8, y: -8}
+      - {x: 8, y: -8}
     indices: 
     edges: []
     tessellationDetail: 0
@@ -327,9 +351,19 @@ ScriptedImporter:
       height: 16
     spriteID: aba086d889ac4e5a5a9d017d2e7b7f5f
     spriteBone: []
-    spriteOutline: []
+    spriteOutline:
+    - outline:
+      - {x: 8, y: 8}
+      - {x: -8, y: 8}
+      - {x: -8, y: -8}
+      - {x: 8, y: -8}
     vertices: []
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: 8, y: 8}
+      - {x: -8, y: 8}
+      - {x: -8, y: -8}
+      - {x: 8, y: -8}
     indices: 
     edges: []
     tessellationDetail: 0
@@ -348,9 +382,19 @@ ScriptedImporter:
       height: 16
     spriteID: c3e47083ea3f43bbc9acabaeec83ab2a
     spriteBone: []
-    spriteOutline: []
+    spriteOutline:
+    - outline:
+      - {x: 8, y: 8}
+      - {x: -8, y: 8}
+      - {x: -8, y: -8}
+      - {x: 8, y: -8}
     vertices: []
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: 8, y: 8}
+      - {x: -8, y: 8}
+      - {x: -8, y: -8}
+      - {x: 8, y: -8}
     indices: 
     edges: []
     tessellationDetail: 0
@@ -369,18 +413,26 @@ ScriptedImporter:
       height: 16
     spriteID: b04fec0af3acb7cb68b1ba085df34a3f
     spriteBone: []
-    spriteOutline: []
+    spriteOutline:
+    - outline:
+      - {x: 8, y: 8}
+      - {x: -8, y: 8}
+      - {x: -8, y: -8}
     vertices: []
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: 8, y: 8}
+      - {x: -8, y: 8}
+      - {x: -8, y: -8}
     indices: 
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   asepriteLayers:
   - layerIndex: 0
-    guid: 869301779
-    name: Tiles_Stone
-    layerFlags: 0
+    guid: -7500616
+    name: Layer 1
+    layerFlags: 3
     layerType: 0
     blendMode: 0
     cells:
@@ -392,7 +444,7 @@ ScriptedImporter:
         y: 0
         width: 16
         height: 16
-      spriteId: 35643b716aa87c739a0759a3f9bb9ccf
+      spriteId: 241733c0282c74f63a7478cf53439093
     - name: Frame_1
       frameIndex: 1
       additiveSortOrder: 0
@@ -401,7 +453,7 @@ ScriptedImporter:
         y: 0
         width: 16
         height: 16
-      spriteId: b8bf5c17faddc5a75bcfbdbe217bf7a5
+      spriteId: e2135ac33d4d4406fa5445b788de0a30
     - name: Frame_2
       frameIndex: 2
       additiveSortOrder: 0
@@ -410,7 +462,7 @@ ScriptedImporter:
         y: 0
         width: 16
         height: 16
-      spriteId: 576083408f215189b9b6f1cadae9f7b0
+      spriteId: 971095b1711a641a58056589ec6d292b
     - name: Frame_3
       frameIndex: 3
       additiveSortOrder: 0
@@ -419,7 +471,7 @@ ScriptedImporter:
         y: 0
         width: 16
         height: 16
-      spriteId: 0efe0ea12a8ca29d587bb37a30f25fa9
+      spriteId: 644bd39b85f8f41fe9ccb0368d511307
     - name: Frame_4
       frameIndex: 4
       additiveSortOrder: 0
@@ -428,7 +480,7 @@ ScriptedImporter:
         y: 0
         width: 16
         height: 16
-      spriteId: 25c477786cbe7980e80f86277f446d14
+      spriteId: d3726edf98c98491daf3ebf3293fc38b
     - name: Frame_5
       frameIndex: 5
       additiveSortOrder: 0
@@ -437,7 +489,7 @@ ScriptedImporter:
         y: 0
         width: 16
         height: 16
-      spriteId: 3458efc71c8908bcfbde95eff7ffb5d0
+      spriteId: cd71fd186f5324fc3880c5d0bd6652af
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -489,7 +541,31 @@ ScriptedImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     androidETC2FallbackOverride: 0
-  generatePhysicsShape: 0
+  - name: Android
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: iPhone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  generatePhysicsShape: 1
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 16, y: 16}

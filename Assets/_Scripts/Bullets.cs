@@ -16,9 +16,8 @@ public class Bullets : MonoBehaviour
         Destroy(gameObject, Random.Range(destroyAfter.x, destroyAfter.y));
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if (other.CompareTag("Ground")) Destroy(gameObject);
     }
 }
