@@ -2484,6 +2484,7 @@ GameObject:
   - component: {fileID: 76202931}
   - component: {fileID: 76202930}
   - component: {fileID: 76202929}
+  - component: {fileID: 76202933}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2609,6 +2610,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &76202933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76202928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9177b7de7db84a78bf379df8a472aad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 2084276244}
+  smoothSpeed: 0.125
 --- !u!1 &925393523
 GameObject:
   m_ObjectHideFlags: 0
@@ -10168,6 +10183,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97af7dbccdafe4ff189f2a662bf6379d, type: 3}
+--- !u!4 &2084276244 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2128075012299436329, guid: b4c1dea385e3c4edfbbaf73209a4e1cc, type: 3}
+  m_PrefabInstance: {fileID: 7942408334846505496}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2943759242768227007
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10277,11 +10297,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4112243692969274191, guid: b4c1dea385e3c4edfbbaf73209a4e1cc, type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 2084276244}
     - target: {fileID: 5849651106678676317, guid: b4c1dea385e3c4edfbbaf73209a4e1cc, type: 3}
       propertyPath: maxBullets
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4112243692969274191, guid: b4c1dea385e3c4edfbbaf73209a4e1cc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

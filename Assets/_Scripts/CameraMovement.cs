@@ -2,35 +2,31 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    [SerializeField] private float cameraPosHeight = 20f; // Height increment (0, 20, 40, etc.)
-    [SerializeField] private float thresholdDistance = 10.5f; // Distance threshold to trigger camera movement
+    [SerializeField] private Transform playerTransform;
+    [SerializeField] private float smoothSpeed = 0.125f;
 
-    private float currentCameraY = 0f;
-
-    private void Update()
+    private void LateUpdate()
     {
-        ChangeCameraHeight();
-    }
+        if (playerTransform == null)
+            return;
 
-    public void ChangeCameraHeight()
-    {
-        float playerY = transform.position.y;
-        float cameraY = Camera.main.transform.position.y;
+        Vector3 currentPosition = transform.position;
 
-        float distance = playerY - cameraY;
+        // Only update the Y position to match the player
+        Vector3 targetPosition = new Vector3(
+            currentPosition.x,
+            playerTransform.position.y,
+            currentPosition.z
+        );
 
-        if (Mathf.Abs(distance) > thresholdDistance)
-        {
-            if (distance > 10)
-            {
-                currentCameraY += cameraPosHeight;
-            }
-            else
-            {
-                currentCameraY -= cameraPosHeight;
-            }
+        // Smoothly move to the target position
+        Vector3 smoothedPosition = Vector3.Lerp(
+            currentPosition,
+            targetPosition,
+            smoothSpeed * Time.deltaTime
+        );
 
-            Camera.main.transform.position = new Vector3(0, currentCameraY, -10);
-        }
+        // Apply the new position
+        transform.position = smoothedPosition;
     }
 }
