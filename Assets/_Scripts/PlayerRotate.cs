@@ -80,6 +80,7 @@ public class PlayerRotate : MonoBehaviour
         if (!jumpingHeld || !isGrounded || isJumping || isDisabled) return;
         isJumping = true;
         SoundManager.instance.PlaySound(jumpSound);
+        rb.linearVelocity = Vector2.zero;
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         Invoke(nameof(JumpingCooldown), 0.1f);
     }
