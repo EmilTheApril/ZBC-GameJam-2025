@@ -10283,11 +10283,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2128075012299436329, guid: b4c1dea385e3c4edfbbaf73209a4e1cc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -5.94
       objectReference: {fileID: 0}
     - target: {fileID: 2128075012299436329, guid: b4c1dea385e3c4edfbbaf73209a4e1cc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7
+      value: 7.22
       objectReference: {fileID: 0}
     - target: {fileID: 2128075012299436329, guid: b4c1dea385e3c4edfbbaf73209a4e1cc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10324,6 +10324,26 @@ PrefabInstance:
     - target: {fileID: 3229586625424389820, guid: b4c1dea385e3c4edfbbaf73209a4e1cc, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766874246692385463, guid: b4c1dea385e3c4edfbbaf73209a4e1cc, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6551483382884780836, guid: b4c1dea385e3c4edfbbaf73209a4e1cc, type: 3}
+      propertyPath: normalMat
+      value: 
+      objectReference: {fileID: 6200000, guid: e882f4a77538b4804b966fa664e7d990, type: 2}
+    - target: {fileID: 6551483382884780836, guid: b4c1dea385e3c4edfbbaf73209a4e1cc, type: 3}
+      propertyPath: attackedMat
+      value: 
+      objectReference: {fileID: 6200000, guid: 1bb5a478a0a284ef2b00cc54a0ed222a, type: 2}
+    - target: {fileID: 6551483382884780836, guid: b4c1dea385e3c4edfbbaf73209a4e1cc, type: 3}
+      propertyPath: disabledTime
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6551483382884780836, guid: b4c1dea385e3c4edfbbaf73209a4e1cc, type: 3}
+      propertyPath: knockbackForceOnPlayer
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

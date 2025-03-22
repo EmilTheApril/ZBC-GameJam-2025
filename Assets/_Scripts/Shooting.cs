@@ -36,10 +36,12 @@ public class Shooting : MonoBehaviour
     void Update()
     {
         SetRotation();
-        Shoot();
-        DampenSpeed();
-
-        if (GetComponent<PlayerRotate>().isGrounded && canFire && rb.linearVelocity.y < 0) currentBullets = maxBullets;
+        if (!GetComponent<PlayerRotate>().isDisabled)
+        {
+            Shoot();
+            DampenSpeed();
+        }
+        if (GetComponent<PlayerRotate>().isGrounded && canFire && rb.linearVelocity.y <= 0) currentBullets = maxBullets;
     }
 
     public void SetRotation()

@@ -8,6 +8,8 @@ public class PlayerRotate : MonoBehaviour
     [SerializeField] private GameObject playerSprite;
     [SerializeField] private float rotationTime = 1f;
     [SerializeField] private float jumpForce;
+    [SerializeField] private float knockbackForceOnPlayer;
+    [SerializeField] private PhysicsMaterial2D attackedMat;
     private bool isRotating = false;
     private float currentRotationTime = 0f;
     private float startRotation = 0f;
@@ -15,9 +17,12 @@ public class PlayerRotate : MonoBehaviour
     private bool jumpingHeld;
     public bool isJumping { get; private set; }
     public bool isGrounded { get; private set; }
+    public bool isDisabled { get; private set; }
+    [SerializeField] private float disabledTime;
     public AudioClip jumpSound;
     public AudioClip fallSound;
     private Rigidbody2D rb;
+    private float timer;
 
     private void Awake()
     {
@@ -32,6 +37,37 @@ public class PlayerRotate : MonoBehaviour
         }
         Jump();
         CheckIfGrounded();
+        UnDisablePlayer();
+
+        if (rb.linearVelocity.y != 0) timer = 0;
+    }
+
+    public void AttackPlayer(Transform otherTrans)
+    {
+        if (isDisabled) return;
+        DisablePlayer();
+        rb.linearVelocity = Vector2.zero;
+        rb.linearDamping = 1;
+        GetComponent<BoxCollider2D>().sharedMaterial = attackedMat;
+        rb.AddForce(((new Vector2(transform.position.x, 0) - new Vector2(otherTrans.position.x, 0)).normalized + Vector2.up).normalized * knockbackForceOnPlayer, ForceMode2D.Impulse);
+    }
+
+    public void DisablePlayer()
+    {
+        isDisabled = true;
+        timer = 0;
+    }
+
+    public void UnDisablePlayer()
+    {
+        if (!isDisabled) return;
+        timer += Time.fixedDeltaTime;
+
+        if(timer >= disabledTime)
+        {
+            isDisabled = false;
+            GetComponent<BoxCollider2D>().sharedMaterial = null;
+        }
     }
 
     public void OnJump(InputValue value)
@@ -41,7 +77,7 @@ public class PlayerRotate : MonoBehaviour
 
     public void Jump()
     {
-        if (!jumpingHeld || !isGrounded || isJumping) return;
+        if (!jumpingHeld || !isGrounded || isJumping || isDisabled) return;
         isJumping = true;
         SoundManager.instance.PlaySound(jumpSound);
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);

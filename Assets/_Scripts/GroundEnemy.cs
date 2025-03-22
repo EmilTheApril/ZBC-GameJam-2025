@@ -72,4 +72,13 @@ public class GroundEnemy : MonoBehaviour
             SoundManager.instance.PlaySound(enemyHit);
         }
     }
+
+    public void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.transform.CompareTag("Player"))
+        {
+            dir = dir * -1;
+            other.transform.GetComponent<PlayerRotate>().AttackPlayer(transform);
+        }
+    }
 }
