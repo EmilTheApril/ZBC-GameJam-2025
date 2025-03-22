@@ -17,7 +17,7 @@ public class PlayerRotate : MonoBehaviour
     private bool jumpingHeld;
     public bool isJumping;
     public bool isGrounded;
-    public bool isDisabled { get; private set; }
+    public bool isDisabled;
     [SerializeField] private float disabledTime;
     public AudioClip jumpSound;
     public AudioClip fallSound;
@@ -40,7 +40,7 @@ public class PlayerRotate : MonoBehaviour
         CheckIfGrounded();
         UnDisablePlayer();
 
-        if (rb.linearVelocity.y != 0) timer = 0;
+        if (Mathf.Abs(rb.linearVelocity.y) > 0.1f) timer = 0;
 
         if(!isGrounded && !isJumping && !isDisabled)
         {
@@ -68,9 +68,8 @@ public class PlayerRotate : MonoBehaviour
     public void UnDisablePlayer()
     {
         if (!isDisabled) return;
-        timer += Time.fixedDeltaTime;
-
-        if(timer >= disabledTime)
+        timer += Time.deltaTime;
+        if (timer >= disabledTime)
         {
             isDisabled = false;
             GetComponent<BoxCollider2D>().sharedMaterial = null;
