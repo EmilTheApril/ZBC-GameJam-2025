@@ -16,6 +16,7 @@ public class PlayerRotate : MonoBehaviour
     public bool isJumping { get; private set; }
     public bool isGrounded { get; private set; }
     public AudioClip jumpSound;
+    public AudioClip fallSound;
     private Rigidbody2D rb;
 
     private void Awake()
@@ -54,11 +55,15 @@ public class PlayerRotate : MonoBehaviour
 
     public void CheckIfGrounded()
     {
-        RaycastHit2D groundLeft = Physics2D.Raycast(transform.position - new Vector3(.5f, .51f), Vector2.down, 0.1f);
-        RaycastHit2D groundRight = Physics2D.Raycast(transform.position - new Vector3(-.5f, .51f), Vector2.down, 0.1f);
+        RaycastHit2D ground = Physics2D.Raycast(transform.position - new Vector3(.35f, .55f), Vector2.right, 0.7f);
 
         if (rb.linearVelocity.y < 0) return;
-        isGrounded = (groundLeft.collider != null || groundRight.collider != null) ? true : false;
+        if(ground.collider != null)
+        {
+            if (isGrounded) return;
+            isGrounded = true;
+            SoundManager.instance.PlaySound(fallSound);
+        } else isGrounded = false;
     }
 
     public void Rotate()

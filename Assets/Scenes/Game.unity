@@ -2343,7 +2343,7 @@ CompositeCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
+  m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
   m_ColliderPaths:
@@ -10325,33 +10325,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3766874246692385463, guid: b4c1dea385e3c4edfbbaf73209a4e1cc, type: 3}
-      propertyPath: m_Size.x
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3766874246692385463, guid: b4c1dea385e3c4edfbbaf73209a4e1cc, type: 3}
-      propertyPath: m_Size.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3766874246692385463, guid: b4c1dea385e3c4edfbbaf73209a4e1cc, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 6311275773235970301, guid: b4c1dea385e3c4edfbbaf73209a4e1cc, type: 3}
-      propertyPath: m_Size.x
-      value: 0.875
-      objectReference: {fileID: 0}
-    - target: {fileID: 6311275773235970301, guid: b4c1dea385e3c4edfbbaf73209a4e1cc, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 1946618881752880254, guid: 5246c61df70ccd1a59364d8e1f186d9a, type: 3}
-    - target: {fileID: 6311275773235970301, guid: b4c1dea385e3c4edfbbaf73209a4e1cc, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 281598143361888744, guid: b4c1dea385e3c4edfbbaf73209a4e1cc, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4c1dea385e3c4edfbbaf73209a4e1cc, type: 3}

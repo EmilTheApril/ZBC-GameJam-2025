@@ -6,6 +6,7 @@ public class GroundEnemy : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
     [SerializeField] private bool isJumping;
+    [SerializeField] private AudioClip enemyHit;
     [SerializeField] private LayerMask layer;
     private Rigidbody2D rb;
 
@@ -60,6 +61,15 @@ public class GroundEnemy : MonoBehaviour
         {
             if (hitUnder.collider == null) return;
             dir = dir * -1;
+        }
+    }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Bullet"))
+        {
+            GetComponent<Health>().RemoveHealth(1);
+            SoundManager.instance.PlaySound(enemyHit);
         }
     }
 }
