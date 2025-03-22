@@ -13,7 +13,9 @@ public class PlayerRotate : MonoBehaviour
     private float startRotation = 0f;
     private bool rotateClockwise = false;
     private bool jumpingHeld;
+    private bool isJumping = false;
     public bool isGrounded { get; private set; }
+    public AudioClip jumpSound;
     private Rigidbody2D rb;
 
     private void Awake()
@@ -38,8 +40,16 @@ public class PlayerRotate : MonoBehaviour
 
     public void Jump()
     {
-        if (!jumpingHeld || !isGrounded) return;
+        if (!jumpingHeld || !isGrounded || isJumping) return;
+        isJumping = true;
+        SoundManager.instance.PlaySound(jumpSound);
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        Invoke(nameof(JumpingCooldown), 0.1f);
+    }
+
+    public void JumpingCooldown()
+    {
+        isJumping = false;
     }
 
     public void CheckIfGrounded()

@@ -19,6 +19,7 @@ public class Shooting : MonoBehaviour
     public GameObject bullet;
     public Transform bulletTransform;
     public SpriteRenderer gunSpriteRenderer;
+    public AudioClip shootSound;
     private Rigidbody2D rb;
 
     public bool canFire = true;
@@ -80,6 +81,7 @@ public class Shooting : MonoBehaviour
         canFire = false;
         currentBullets--;
 
+        SoundManager.instance.PlaySound(shootSound);
         GunRecoil();
         GetComponent<PlayerRotate>().Rotate();
 

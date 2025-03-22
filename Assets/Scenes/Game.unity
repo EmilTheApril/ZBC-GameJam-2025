@@ -2736,6 +2736,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5849651106678676317, guid: b4c1dea385e3c4edfbbaf73209a4e1cc, type: 3}
+      propertyPath: shootSound
+      value: 
+      objectReference: {fileID: 8300000, guid: db2f68bde40b54ddf9e48520e5e83ce7, type: 3}
+    - target: {fileID: 5849651106678676317, guid: b4c1dea385e3c4edfbbaf73209a4e1cc, type: 3}
       propertyPath: KnockbackForce
       value: 2000
       objectReference: {fileID: 0}
@@ -2743,6 +2747,10 @@ PrefabInstance:
       propertyPath: velocityBreakForce
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6551483382884780836, guid: b4c1dea385e3c4edfbbaf73209a4e1cc, type: 3}
+      propertyPath: jumpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 461a72964e8784013a69cfd610795188, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
