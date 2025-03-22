@@ -13,7 +13,7 @@ public class PlayerRotate : MonoBehaviour
     private float startRotation = 0f;
     private bool rotateClockwise = false;
     private bool jumpingHeld;
-    private bool isGrounded;
+    public bool isGrounded { get; private set; }
     private Rigidbody2D rb;
 
     private void Awake()
