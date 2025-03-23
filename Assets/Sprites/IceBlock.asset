@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Spike
+  m_Name: IceBlock
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -1629313739355688770, guid: c29630ecef25d42098901d8ccb75dd96, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 2323233877096637111, guid: e059219c26d7f3e49b0b1107789b93b7, type: 3}
+  m_Color: {r: 0.24056602, g: 0.7923131, b: 1, a: 1}
   m_Transform:
     e00: 1
     e01: 0
@@ -31,6 +31,6 @@ MonoBehaviour:
     e31: 0
     e32: 0
     e33: 1
-  m_InstancedGameObject: {fileID: 1088526648261649842, guid: 7e59279325cba4b7fbe8e1a396b6b191, type: 3}
+  m_InstancedGameObject: {fileID: 1088526648261649842, guid: 4011e1de4bdf04f8fbd68c58d9fdd4a3, type: 3}
   m_Flags: 1
   m_ColliderType: 1
