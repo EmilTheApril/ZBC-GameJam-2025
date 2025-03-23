@@ -39,7 +39,7 @@ public class Shooting : MonoBehaviour
         SetRotation();
         if (!GetComponent<PlayerRotate>().isDisabled)
         {
-            Shoot();
+            //Shoot();
             DampenSpeed();
         }
         if (GetComponent<PlayerRotate>().isGrounded && canFire && rb.linearVelocity.y <= 0) currentBullets = maxBullets;
@@ -59,7 +59,8 @@ public class Shooting : MonoBehaviour
 
     public void OnFire(InputValue value)
     {
-        shootButtonHeld = value.Get<float>() == 1 ? true : false;
+        //shootButtonHeld = value.Get<float>() == 1 ? true : false;
+        Shoot();
     }
 
     public void ShootCooldown()
@@ -80,7 +81,7 @@ public class Shooting : MonoBehaviour
 
     public void Shoot()
     {
-        if (!canFire || !shootButtonHeld) return;
+        if (!canFire || GetComponent<PlayerRotate>().isDisabled/* || !shootButtonHeld*/) return;
         if (currentBullets <= 0) return;
         canFire = false;
 
